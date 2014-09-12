@@ -1,0 +1,22 @@
+#cover-letter{
+
+}
+/*#snippet-controls{
+	float: right;
+}*/
+div{
+	border: 1px dotted black;
+}
+#content{
+	max-width: 800px;
+	margin: 50px auto;
+}
+td{
+	padding: 2px 5px;
+}
+tr{
+	border-bottom: 1px solid black;
+}
+tr:last-child{
+	border-bottom: none;
+}

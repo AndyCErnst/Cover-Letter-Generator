@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="coverLetterApp">
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" href="css/main.css">
+
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="js/controllers.js"></script>
+
+</head>
+
+<body ng-controller="CoverBuilderController">
+  <div id="content">
+    <h1>Cover Letter Generator</h1>
+    <div class="contrainer-fluid">
+      <div class="row">
+        <div id="cover-letter" class="col-sm-8">
+          <p id="lead-paragraph">{{leadParagraph}}</p>
+
+          <p class="snippet">
+            <ul>
+              <li ng-repeat="snippet in snippets" ng-if="snippet.show">
+
+                {{snippet.info}}
+
+              </li>
+            </ul>
+          </p>
+        </div>
+
+        <div id="snippet-controls" class="col-sm-4">
+          <table id="snippet-table">
+            <tr ng-repeat="snippet in snippets">
+              <td>{{snippet.name}}</td>
+              <td>
+                <input type="checkbox" value="show" ng-model="snippet.show">
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
