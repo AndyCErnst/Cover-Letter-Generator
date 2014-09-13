@@ -1,22 +1,47 @@
-#cover-letter{
-
-}
-/*#snippet-controls{
-	float: right;
-}*/
-div{
-	border: 1px dotted black;
+html, body{
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	background-color: #0B6AA4;
 }
 #content{
-	max-width: 800px;
+	max-width: 1200px;
+	height: 100%;
 	margin: 50px auto;
+	padding: 1px 20px;
+	background-color: white;
 }
-td{
+#cover-draft, #cover-final{
+	border: 2px dashed black;
+	padding: 0 10px;
+	margin: 0 10px;
+}
+
+/*div{
+	border: 1px dotted black;
+}*/
+
+.paragraph-check{
+	margin: auto;
+}
+.snippet-list{
 	padding: 2px 5px;
-}
-tr{
 	border-bottom: 1px solid black;
 }
-tr:last-child{
+
+.snippet-list:last-child{
 	border-bottom: none;
+}
+#snippet-controls{
+
+}
+#snippet-list-box{
+	margin: 0 auto;
+	border: 5px solid black;
+	width: 100%;
+	max-width: 300px;
+}
+
+.inactive{
+	color: #c4c4c4;
 }

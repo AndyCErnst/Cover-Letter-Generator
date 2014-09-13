@@ -5,8 +5,8 @@
   <meta charset="utf-8">
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
   <link rel="stylesheet" href="css/main.css">
-
   <script src="bower_components/angular/angular.js"></script>
+  <script src="data/data.js"></script>
   <script src="js/controllers.js"></script>
 
 </head>
@@ -16,29 +16,53 @@
     <h1>Cover Letter Generator</h1>
     <div class="contrainer-fluid">
       <div class="row">
-        <div id="cover-letter" class="col-sm-8">
-          <p id="lead-paragraph">{{leadParagraph}}</p>
 
-          <p class="snippet">
-            <ul>
-              <li ng-repeat="snippet in snippets" ng-if="snippet.show">
+        <div class="col-md-5">
+          <div id="cover-draft">
+            <h2>Draft</h2>
 
+            <div ng-repeat="paragraph in bodyParagraphs">
+              <p ng-click="paragraph.hide = !paragraph.hide; style = !style" ng-class="{inactive: style}">{{paragraph.text}}</p>
+            </div>
+
+            <ul class="snippet">
+              <li ng-repeat="snippet in snippets" ng-class="{inactive: style}" ng-click="snippet.hide = !snippet.hide; style = !style">
                 {{snippet.info}}
-
               </li>
             </ul>
-          </p>
+
+            <div ng-repeat="paragraph in endingParagraphs">
+              <p ng-click="paragraph.hide = !paragraph.hide; style = !style" ng-class="{inactive: style}">{{paragraph.text}}</p>
+            </div>
+
+          </div>
         </div>
 
-        <div id="snippet-controls" class="col-sm-4">
-          <table id="snippet-table">
-            <tr ng-repeat="snippet in snippets">
-              <td>{{snippet.name}}</td>
-              <td>
-                <input type="checkbox" value="show" ng-model="snippet.show">
-              </td>
-            </tr>
-          </table>
+        <div id="snippet-controls" class="col-md-2">
+          <div id="snippet-list-box">
+            <div class="snippet-list">Select skills to list:</div>
+            <div class="snippet-list" ng-init="style=true" ng-class="{inactive: style}" ng-repeat="snippet in snippets" ng-click="snippet.hide = !snippet.hide; style = !style">
+              {{snippet.name}}
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-5">
+          <div id="cover-final">
+            <h2>Final</h2>
+            <p ng-repeat="paragraph in bodyParagraphs" ng-hide="paragraph.hide">
+              {{paragraph.text}}
+            </p>
+
+            <ul class="snippet">
+              <li ng-repeat="snippet in snippets" ng-hide="snippet.hide">
+                {{snippet.info}}
+              </li>
+            </ul>
+            <div ng-repeat="paragraph in endingParagraphs" ng-hide="paragraph.hide">
+              <p >{{paragraph.text}}</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
