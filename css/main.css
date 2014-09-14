@@ -20,17 +20,17 @@ html, body{
 	margin: 0 auto;
 	border: 5px solid black;
 }
-#snippet-list{
+#snippet-controls-list{
 	list-style: none;
 	width: 100%;
 	max-width: 300px;
 	padding: 0;
 }
-#snippet-list li{
+#snippet-controls-list li{
 	padding: 2px 5px;
 	border-bottom: 1px solid black;
 }
-#snippet-list li:last-child{
+#snippet-controls-list li:last-child{
 	border-bottom: none;
 }
 

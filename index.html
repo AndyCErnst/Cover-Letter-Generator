@@ -21,26 +21,26 @@
           <div id="cover-draft">
             <h2>Draft</h2>
 
-            <p ng-repeat="paragraph in bodyParagraphs" ng-class="{inactive: style}">
-            	<input type="checkbox" ng-click="paragraph.hide = !paragraph.hide; style = !style">
-              <span ng-repeat="sentence in paragraph.sentences" ng-click="sentence.hide = !sentence.hide; style = !style" ng-class="{inactive: style}">{{sentence.text}}</span>
+            <p ng-repeat="paragraph in bodyParagraphs" ng-class="{inactive: paragraph.hide}">
+            	<input type="checkbox" ng-click="paragraph.hide = !paragraph.hide">
+              <span ng-repeat="sentence in paragraph.sentences" ng-click="sentence.hide = !sentence.hide" ng-class="{inactive: sentence.hide}">{{sentence.text}}</span>
             </p>
 
             <ul class="snippet">
-              <li ng-repeat="snippet in snippets" ng-class="{inactive: style}" ng-click="snippet.hide = !snippet.hide; style = !style" title="click to disable">
+              <li ng-repeat="snippet in snippets" ng-class="{inactive: snippet.hide}" ng-click="snippet.hide = !snippet.hide" title="click to disable">
                 {{snippet.info}}
               </li>
             </ul>
 
             <div ng-repeat="paragraph in endingParagraphs">
-              <p ng-click="paragraph.hide = !paragraph.hide; style = !style" ng-class="{inactive: style}" title="click to disable">{{paragraph.text}}</p>
+              <p ng-click="paragraph.hide = !paragraph.hide" ng-class="{inactive: paragraph.hide}" title="click to disable">{{paragraph.text}}</p>
             </div>
 
           </div>
         </div>
 
         <div id="snippet-controls" class="col-md-2">
-        	<ul id="snippet-list">
+        	<ul id="snippet-controls-list">
 	          <li><h4>Skills list:</h4></li>
 	          <li ng-repeat="snippet in snippets">
 	            {{snippet.name}}
