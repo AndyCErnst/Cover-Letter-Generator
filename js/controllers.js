@@ -7,13 +7,12 @@ coverLetterApp.controller("CoverBuilderController", ["$scope", "$http",
   function($scope, $http) {
 
     textData.bodyParagraphs.forEach(function(paragraph) {
-        paragraph.sentences = splitAndObjectfy(paragraph.text);
-      });
-    console.log(textData.bodyParagraphs);
-    $scope.bodyParagraphs = textData.bodyParagraphs;
+      paragraph.sentences = splitAndObjectfy(paragraph.text);
+    });
 
-    $scope.snippets = textData.snippets;
+    $scope.bodyParagraphs = textData.bodyParagraphs;
     $scope.endingParagraphs = textData.endingParagraphs;
+		$scope.snippets = textData.snippets;
   }
 ]);
 

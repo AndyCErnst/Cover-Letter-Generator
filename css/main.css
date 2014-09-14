@@ -3,28 +3,35 @@ html, body{
 	position: absolute;
 	background-color: #0B6AA4;
 }
+body{
+	padding: 0 20px;
+}
+
 #content{
-	max-width: 1200px;
+	max-width: 1400px;
 	height: 100%;
-	margin: 50px auto;
+	margin: 30px auto;
 	padding: 30px;
 	background-color: white;
 }
+h1{
+	text-align: center;
+	margin-top: 0;
+}
+
 #cover-draft, #cover-final{
 	border: 2px dashed black;
 	padding: 0 10px;
 	margin: 0 10px;
 }
 
-#snippet-controls{
+#snippet-controls-list{
 	margin: 0 auto;
 	border: 5px solid black;
-}
-#snippet-controls-list{
 	list-style: none;
 	width: 100%;
 	max-width: 300px;
-	padding: 0;
+	padding: 5px;
 }
 #snippet-controls-list li{
 	padding: 2px 5px;
