@@ -46,13 +46,11 @@ var paragraphs = {
 };
 
 var snippets = [
-	{name: "javascript", info: "Used full-stack, OO JavaScript (including Angular, Backbone, Node, Mustache, jQuery, AJAX) to write complex web applications and interactive websites"},
+	{name: "javascript", info: "Used full-stack, OO JavaScript (including Angular, Backbone, Node, Handlebars, jQuery, AJAX) to write complex web applications and interactive websites"},
 
-	{name: "responsive design", info: "Currently designing mobile-first, responsive websites with HTML/CSS"},
+	{name: "responsive design", info: "Currently designing mobile-first, responsive websites with HTML5/CSS3"},
 
 	{name: "design", info: "Keen eye for the subtle things that make a great user experience"},
 
-	{name: "css", info: "I know css"},
-	{name: "html", info: "I know html"},
 	{name: "java", info: "Developed a Java algorithm to find idea areas for investment from 1+ million lines of unemployment data."}
 ];

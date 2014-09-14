@@ -16,29 +16,22 @@ html, body{
 	margin: 0 10px;
 }
 
-/*div{
-	border: 1px dotted black;
-}*/
-
-.paragraph-check{
-	margin: auto;
+#snippet-controls{
+	margin: 0 auto;
+	border: 5px solid black;
 }
-.snippet-list{
+#snippet-list{
+	list-style: none;
+	width: 100%;
+	max-width: 300px;
+	padding: 0;
+}
+#snippet-list li{
 	padding: 2px 5px;
 	border-bottom: 1px solid black;
 }
-
-.snippet-list:last-child{
+#snippet-list li:last-child{
 	border-bottom: none;
-}
-#snippet-controls{
-
-}
-#snippet-list-box{
-	margin: 0 auto;
-	border: 5px solid black;
-	width: 100%;
-	max-width: 300px;
 }
 
 .inactive{

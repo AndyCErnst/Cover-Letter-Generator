@@ -21,10 +21,10 @@
           <div id="cover-draft">
             <h2>Draft</h2>
 
-            <div ng-repeat="paragraph in bodyParagraphs" ng-class="{inactive: style}">
+            <p ng-repeat="paragraph in bodyParagraphs" ng-class="{inactive: style}">
             	<input type="checkbox" ng-click="paragraph.hide = !paragraph.hide; style = !style">
               <span ng-repeat="sentence in paragraph.sentences" ng-click="sentence.hide = !sentence.hide; style = !style" ng-class="{inactive: style}">{{sentence.text}}</span>
-            </div>
+            </p>
 
             <ul class="snippet">
               <li ng-repeat="snippet in snippets" ng-class="{inactive: style}" ng-click="snippet.hide = !snippet.hide; style = !style" title="click to disable">
@@ -40,12 +40,12 @@
         </div>
 
         <div id="snippet-controls" class="col-md-2">
-          <div id="snippet-list-box">
-            <div class="snippet-list">Select skills to list:</div>
-            <div class="snippet-list" ng-init="style=true" ng-class="{inactive: style}" ng-repeat="snippet in snippets" ng-click="snippet.hide = !snippet.hide; style = !style">
-              {{snippet.name}}
-            </div>
-          </div>
+        	<ul id="snippet-list">
+	          <li><h4>Skills list:</h4></li>
+	          <li ng-repeat="snippet in snippets">
+	            {{snippet.name}}
+	          </li>
+          </ul>
         </div>
 
         <div class="col-md-5">
