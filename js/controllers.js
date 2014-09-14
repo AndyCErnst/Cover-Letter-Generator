@@ -2,20 +2,26 @@
 
 var coverLetterApp = angular.module("coverLetterApp", []);
 
-var snippets = [
-	{name: "javascript", info: "I know JS"},
-	{name: "css", info: "I know css"},
-	{name: "html", info: "I know html"}
-];
 
 coverLetterApp.controller("CoverBuilderController", ["$scope", "$http",
   function($scope, $http) {
     $scope.snippets = snippets;
+    paragraphs.body.forEach(function(paragraph){
+    	paragraph.sentences = splitAndObjectfy(paragraph.text);
+    })
+		
     $scope.bodyParagraphs = paragraphs.body;
     $scope.endingParagraphs = paragraphs.ending;
-
   }
 ]);
+
+var splitAndObjectfy = function(text){
+	var sentences = text.match(/[^\.!\?]+[\.!\?\s]+/g);
+
+	return sentences.map(function(sentence){
+		return {text: sentence};
+	});
+};
 
 var paragraphs = { 
 	body:[
@@ -28,7 +34,10 @@ var paragraphs = {
   }],
   ending:[
   {
-  	text: "Let’s do great things together."
+  	text: "I am very excited to learn more about this opportunity and share how I will be a great fit for this position."
+  },
+   {
+  	text: "I would appreciate the opportunity to meet with you to discuss how my qualifications will be beneficial to your company's success."
   },
   {
   	text: "I look forward to hearing from you."
@@ -36,3 +45,14 @@ var paragraphs = {
   ]
 };
 
+var snippets = [
+	{name: "javascript", info: "Used full-stack, OO JavaScript (including Angular, Backbone, Node, Mustache, jQuery, AJAX) to write complex web applications and interactive websites"},
+
+	{name: "responsive design", info: "Currently designing mobile-first, responsive websites with HTML/CSS"},
+
+	{name: "design", info: "Keen eye for the subtle things that make a great user experience"},
+
+	{name: "css", info: "I know css"},
+	{name: "html", info: "I know html"},
+	{name: "java", info: "Developed a Java algorithm to find idea areas for investment from 1+ million lines of unemployment data."}
+];
