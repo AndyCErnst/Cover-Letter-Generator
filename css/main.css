@@ -1,5 +1,4 @@
 html, body{
-	height: 100%;
 	width: 100%;
 	position: absolute;
 	background-color: #0B6AA4;
@@ -8,7 +7,7 @@ html, body{
 	max-width: 1200px;
 	height: 100%;
 	margin: 50px auto;
-	padding: 1px 20px;
+	padding: 30px;
 	background-color: white;
 }
 #cover-draft, #cover-final{

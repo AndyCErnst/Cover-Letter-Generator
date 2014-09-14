@@ -21,18 +21,19 @@
           <div id="cover-draft">
             <h2>Draft</h2>
 
-            <div ng-repeat="paragraph in bodyParagraphs">
-              <p ng-click="paragraph.hide = !paragraph.hide; style = !style" ng-class="{inactive: style}">{{paragraph.text}}</p>
+            <div ng-repeat="paragraph in bodyParagraphs" ng-class="{inactive: style}">
+            	<input type="checkbox" ng-click="paragraph.hide = !paragraph.hide; style = !style">
+              <span ng-repeat="sentence in paragraph.sentences" ng-click="sentence.hide = !sentence.hide; style = !style" ng-class="{inactive: style}">{{sentence.text}}</span>
             </div>
 
             <ul class="snippet">
-              <li ng-repeat="snippet in snippets" ng-class="{inactive: style}" ng-click="snippet.hide = !snippet.hide; style = !style">
+              <li ng-repeat="snippet in snippets" ng-class="{inactive: style}" ng-click="snippet.hide = !snippet.hide; style = !style" title="click to disable">
                 {{snippet.info}}
               </li>
             </ul>
 
             <div ng-repeat="paragraph in endingParagraphs">
-              <p ng-click="paragraph.hide = !paragraph.hide; style = !style" ng-class="{inactive: style}">{{paragraph.text}}</p>
+              <p ng-click="paragraph.hide = !paragraph.hide; style = !style" ng-class="{inactive: style}" title="click to disable">{{paragraph.text}}</p>
             </div>
 
           </div>
@@ -51,7 +52,7 @@
           <div id="cover-final">
             <h2>Final</h2>
             <p ng-repeat="paragraph in bodyParagraphs" ng-hide="paragraph.hide">
-              {{paragraph.text}}
+              <span ng-repeat="sentence in paragraph.sentences" ng-hide="sentence.hide">{{sentence.text}}</span>
             </p>
 
             <ul class="snippet">
