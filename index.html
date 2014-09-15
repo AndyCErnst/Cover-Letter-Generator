@@ -4,9 +4,12 @@
 <head>
   <meta charset="utf-8">
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="bower_components/ng-sortable/ng-sortable.min.css">
   <link rel="stylesheet" href="css/main.css">
+
   <script src="bower_components/angular/angular.js"></script>
-  <script src="data/data.js"></script>
+  <script type="text/javascript" src="bower_components/ng-sortable/dist/ng-sortable.min.js"></script>
+  <!--<script src="data/data.js"></script>-->
   <script src="js/controllers.js"></script>
 
 </head>
@@ -22,7 +25,7 @@
             <h2>Draft</h2>
 
             <p ng-repeat="paragraph in bodyParagraphs" ng-class="{inactive: paragraph.hide}">
-            	<input type="checkbox" ng-click="paragraph.hide = !paragraph.hide">
+              <input type="checkbox" ng-click="paragraph.hide = !paragraph.hide">
               <span ng-repeat="sentence in paragraph.sentences" ng-click="sentence.hide = !sentence.hide" ng-class="{inactive: sentence.hide}">{{sentence.text}}</span>
             </p>
 
@@ -40,11 +43,13 @@
         </div>
 
         <div id="snippet-controls" class="col-md-2">
-        	<ul id="snippet-controls-list">
-	          <li><h4>Skills list:</h4></li>
-	          <li ng-repeat="snippet in snippets">
-	            {{snippet.name}}
-	          </li>
+          <ul id="snippet-controls-list">
+            <li>
+              <h4>Skills list:</h4>
+            </li>
+            <li ng-repeat="snippet in snippets">
+              {{snippet.name}}
+            </li>
           </ul>
         </div>
 
@@ -61,7 +66,7 @@
               </li>
             </ul>
             <div ng-repeat="paragraph in endingParagraphs" ng-hide="paragraph.hide">
-              <p >{{paragraph.text}}</p>
+              <p>{{paragraph.text}}</p>
             </div>
           </div>
         </div>

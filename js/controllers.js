@@ -1,6 +1,6 @@
 "use strict";
 
-var coverLetterApp = angular.module("coverLetterApp", []);
+var coverLetterApp = angular.module("coverLetterApp", ["ui.sortable"]);
 
 
 coverLetterApp.controller("CoverBuilderController", ["$scope", "$http",
@@ -13,6 +13,13 @@ coverLetterApp.controller("CoverBuilderController", ["$scope", "$http",
     $scope.bodyParagraphs = textData.bodyParagraphs;
     $scope.endingParagraphs = textData.endingParagraphs;
 		$scope.snippets = textData.snippets;
+		$scope.companyName = "XXXX";
+		$scope.dragControlListeners = {
+	    accept: function (sourceItemHandleScope, destSortableScope) {return boolean},//override to determine drag is allowed or not. default is true.
+	    itemMoved: function (event) {},
+	    orderChanged: function(event) {},
+	    containment: '#board'//optional param.
+		};
   }
 ]);
 
@@ -37,10 +44,12 @@ var textData = {
   }],
 
   endingParagraphs: [{
-    text: "I am very excited to learn more about this opportunity and share how I will be a great fit for this position."
-  }, {
+    text: "I am very excited to learn more about this opportunity at and share how I will be a great fit for this position."
+  }, 
+  {
     text: "I would appreciate the opportunity to meet with you to discuss how my qualifications will be beneficial to your company's success."
-  }, {
+  }, 
+  {
     text: "I look forward to hearing from you."
   }],
 
@@ -64,5 +73,4 @@ var textData = {
       info: "Developed a Java algorithm to find idea areas for investment from 1+ million lines of unemployment data."
     }
   ]
-
 };
