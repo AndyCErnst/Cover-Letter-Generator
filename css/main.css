@@ -23,7 +23,10 @@ h1{
 	border: 2px dashed black;
 	padding: 0 10px;
 	margin: 0 10px;
+	min-height: 300px;
 }
+
+
 
 #snippet-controls-list{
 	margin: 0 auto;
@@ -41,6 +44,27 @@ h1{
 	border-bottom: none;
 }
 
-.inactive{
-	color: #c4c4c4;
+
+.drop-section{
+	min-height: 100px;
+	border: 1px dotted black;
+}
+
+/*Override ng-sortable css*/
+.sortable-item, .sortable-placeholder{
+	border-radius: 0;
+	padding: 3px;
+}
+
+#dropView .sortable-item:not(li){
+	border: none;
+	display: inline;
+	padding: 0;
+}
+
+.snippet-list li:not(.sortable-placeholder) {
+	display: list-item;
+}
+.sortable-hidden{
+	background-color: green;
 }

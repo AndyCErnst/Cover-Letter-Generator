@@ -4,9 +4,12 @@
 <head>
   <meta charset="utf-8">
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="bower_components/ng-sortable/dist/ng-sortable.min.css">
   <link rel="stylesheet" href="css/main.css">
+
   <script src="bower_components/angular/angular.js"></script>
-  <script src="data/data.js"></script>
+  <script type="text/javascript" src="bower_components/ng-sortable/dist/ng-sortable.min.js"></script>
+  <!--<script src="data/data.js"></script>-->
   <script src="js/controllers.js"></script>
 
 </head>
@@ -20,49 +23,77 @@
         <div class="col-md-5">
           <div id="cover-draft">
             <h2>Draft</h2>
-
-            <p ng-repeat="paragraph in bodyParagraphs" ng-class="{inactive: paragraph.hide}">
-            	<input type="checkbox" ng-click="paragraph.hide = !paragraph.hide">
-              <span ng-repeat="sentence in paragraph.sentences" ng-click="sentence.hide = !sentence.hide" ng-class="{inactive: sentence.hide}">{{sentence.text}}</span>
-            </p>
-
-            <ul class="snippet">
-              <li ng-repeat="snippet in snippets" ng-class="{inactive: snippet.hide}" ng-click="snippet.hide = !snippet.hide" title="click to disable">
-                {{snippet.info}}
+            <div data-sortable="dragControlListeners" data-ng-model="bodySentences">
+	            <div ng-repeat="sentence in bodySentences" data-sortable-item>
+	            	<div data-sortable-item-handle>{{sentence.text}}</div>
+	            </div>
+            </div>
+            <ul class="snippet-list" data-sortable="dragControlListeners" data-ng-model="snippets">
+              <li ng-repeat="snippet in snippets" data-sortable-item>
+              	<div data-sortable-item-handle>
+                 {{snippet.text}}
+                </div>
               </li>
             </ul>
-
-            <div ng-repeat="paragraph in endingParagraphs">
-              <p ng-click="paragraph.hide = !paragraph.hide" ng-class="{inactive: paragraph.hide}" title="click to disable">{{paragraph.text}}</p>
+            <div data-sortable="dragControlListeners" data-ng-model="endingSentences">
+	            <div ng-repeat="sentence in endingSentences" data-sortable-item>
+	            	<div data-sortable-item-handle>{{sentence.text}}</div>
+	            </div>
             </div>
 
           </div>
         </div>
 
         <div id="snippet-controls" class="col-md-2">
-        	<ul id="snippet-controls-list">
-	          <li><h4>Skills list:</h4></li>
-	          <li ng-repeat="snippet in snippets">
-	            {{snippet.name}}
-	          </li>
+          <ul id="snippet-controls-list">
+            <li>
+              <h4>Skills list:</h4>
+            </li>
+            <li ng-repeat="snippet in snippets">
+              {{snippet.name}}
+            </li>
           </ul>
         </div>
 
-        <div class="col-md-5">
+        <div class="col-md-5" ng-switch on="prettyView" ng-init="prettyView = false">
           <div id="cover-final">
-            <h2>Final</h2>
-            <p ng-repeat="paragraph in bodyParagraphs" ng-hide="paragraph.hide">
-              <span ng-repeat="sentence in paragraph.sentences" ng-hide="sentence.hide">{{sentence.text}}</span>
-            </p>
+            <h2>Final </h2> 
+            <button ng-click="prettyView = !prettyView">{{prettyView ? "Edit View" : "Pretty View"}}</button>
 
-            <ul class="snippet">
-              <li ng-repeat="snippet in snippets" ng-hide="snippet.hide">
-                {{snippet.info}}
-              </li>
-            </ul>
-            <div ng-repeat="paragraph in endingParagraphs" ng-hide="paragraph.hide">
-              <p >{{paragraph.text}}</p>
+            <div id="dropView" ng-switch-when=false>
+
+            	<div id="endVersion-beginning-sentences" class="drop-section" data-sortable="dragControlListeners" data-ng-model="endVersion.beginningSentences">
+	            	<span ng-repeat="sentence in endVersion.beginningSentences" data-sortable-item>
+		            	<span data-sortable-item-handle>{{sentence.text}}</span>
+		            </span>
+            	</div>
+	            <ul class="snippet-list drop-section" data-sortable="dragControlListeners" data-ng-model="endVersion.snippets">
+	              <li class="endVersion" ng-repeat="snippet in endVersion.snippets" data-sortable-item>
+	              	<div data-sortable-item-handle>
+	                 {{snippet.text}}
+	                </div>
+	              </li>
+	            </ul>
+            	<div id="endVersion-ending-sentences" class="drop-section" data-sortable="dragControlListeners" data-ng-model="endVersion.endingSentences">
+	            	<span ng-repeat="sentence in endVersion.endingSentences" data-sortable-item>
+		            	<span data-sortable-item-handle>{{sentence.text}}</span>
+		            </span>
+            	</div>
             </div>
+
+            <div id="prettyView" ng-switch-when=true>
+	            <span ng-repeat="sentence in endVersion.beginningSentences" ng-hide="sentence.hide">{{sentence.text}}</span>
+
+	            <ul class="snippet-list">
+	              <li ng-repeat="snippet in endVersion.snippets" ng-hide="snippet.hide">
+	                {{snippet.text}}
+	              </li>
+	            </ul>
+	            <div ng-repeat="sentence in endVersion.endingSentences" ng-hide="sentence.hide">
+	              <p>{{sentence.text}}</p>
+	            </div>
+            </div>
+
           </div>
         </div>
       </div>
