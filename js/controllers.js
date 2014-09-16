@@ -22,6 +22,8 @@ coverLetterApp.controller("CoverBuilderController", ["$scope", "$http",
 	    orderChanged: function(event) {},
 	    containment: '#board'//optional param.
 		};
+		var endVersion = {};
+		$scope.endVersion = endVersion;
   }
 ]);
 
@@ -57,22 +59,22 @@ var textData = {
 
   snippets: [{
       name: "javascript",
-      info: "Used full-stack, OO JavaScript (including Angular, Backbone, Node, Handlebars, jQuery, AJAX) to write complex web applications and interactive websites"
+      text: "Used full-stack, OO JavaScript (including Angular, Backbone, Node, Handlebars, jQuery, AJAX) to write complex web applications and interactive websites"
     },
 
     {
       name: "responsive design",
-      info: "Currently designing mobile-first, responsive websites with HTML5/CSS3"
+      text: "Currently designing mobile-first, responsive websites with HTML5/CSS3"
     },
 
     {
       name: "design",
-      info: "Keen eye for the subtle things that make a great user experience"
+      text: "Keen eye for the subtle things that make a great user experience"
     },
 
     {
       name: "java",
-      info: "Developed a Java algorithm to find idea areas for investment from 1+ million lines of unemployment data."
+      text: "Developed a Java algorithm to find idea areas for investment from 1+ million lines of unemployment data."
     }
   ]
 };
