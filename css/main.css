@@ -73,3 +73,13 @@ h1{
 #pretty-view{
 	min-height: 300px;
 }
+.placeholder-text{
+	color: #ccc;
+	text-align: center;
+	font-size: 2em;
+	top: 25px;
+	position: relative;
+}
+ul .placeholder-text{
+	right: 20px;
+}
