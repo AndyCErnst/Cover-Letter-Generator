@@ -58,21 +58,21 @@
           </ul>
         </div> -->
 
-        <div class="col-md-6" ng-switch on="prettyView" ng-init="prettyView = false">
-          <div id="cover-final">
+        <div class="col-md-6">
+          <div id="cover-final" ng-switch on="prettyView" ng-init="prettyView = false">
             <h2>Final </h2> 
 
             <div id="drop-view" ng-switch-when=false>
 
             	<div id="end-version-beginning-sentences" class="drop-section" data-sortable="dragControlListeners" data-ng-model="endVersion.beginningSentences">
-            		<p ng-hide="endVersion.beginningSentences.length" class="placeholder-text">{{placeholderText}}</p>
+            		<p ng-hide="endVersion.beginningSentences.length" class="placeholder-text">First Paragraph</p>
 	            	<span ng-repeat="sentence in endVersion.beginningSentences" data-sortable-item>
 		            	<span data-sortable-item-handle>{{sentence.text}}</span>
 		            </span>
             	</div>
 
 	            <ul class="snippet-list drop-section" data-sortable="dragControlListeners" data-ng-model="endVersion.snippets">
-	              <p ng-hide="endVersion.snippets.length" class="placeholder-text">{{placeholderText}}</p>
+	              <p ng-hide="endVersion.snippets.length" class="placeholder-text">Bullet Points</p>
 	              <li class="endVersion" ng-repeat="snippet in endVersion.snippets" data-sortable-item>
 	              	<div data-sortable-item-handle>
 	                 {{snippet.text}}
@@ -81,7 +81,7 @@
 	            </ul>
 
             	<div id="end-version-ending-sentences" class="drop-section" data-sortable="dragControlListeners" data-ng-model="endVersion.endingSentences">
-	            	<p ng-hide="endVersion.endingSentences.length" class="placeholder-text">{{placeholderText}}</p>
+	            	<p ng-hide="endVersion.endingSentences.length" class="placeholder-text">Second Paragraph</p>
 	            	<span ng-repeat="sentence in endVersion.endingSentences" data-sortable-item>
 		            	<span data-sortable-item-handle>{{sentence.text}}</span>
 		            </span>
@@ -91,8 +91,10 @@
 
             <div id="pretty-view" ng-switch-when=true>
 
-	            <p ng-repeat="sentence in endVersion.beginningSentences">
-	            	<span>{{sentence.text}}</span>
+	            <p>
+	            	<span ng-repeat="sentence in endVersion.beginningSentences">
+	            		{{sentence.text}}
+	            	</span>
 	            </p>
 
 	            <ul class="snippet-list">
@@ -101,8 +103,10 @@
 	              </li>
 	            </ul>
 
-	            <p ng-repeat="sentence in endVersion.endingSentences">
-	              <span>{{sentence.text}}</span>
+	            <p >
+	              <span ng-repeat="sentence in endVersion.endingSentences">
+	              	{{sentence.text}}
+	              </span>
 	            </p>
 
             </div>

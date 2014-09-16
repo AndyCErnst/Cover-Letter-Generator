@@ -23,7 +23,6 @@ coverLetterApp.controller("CoverBuilderController", ["$scope", "$http",
 		};
 		var endVersion = {};
 		$scope.endVersion = endVersion;
-		$scope.placeholderText = "Place Text Here";
   }
 ]);
 
