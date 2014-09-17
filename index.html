@@ -20,14 +20,16 @@
     <div class="contrainer-fluid">
       <div class="row">
 
-        <div class="col-md-5">
+        <div class="col-md-6">
           <div id="cover-draft">
             <h2>Draft</h2>
+
             <div data-sortable="dragControlListeners" data-ng-model="bodySentences">
 	            <div ng-repeat="sentence in bodySentences" data-sortable-item>
 	            	<div data-sortable-item-handle>{{sentence.text}}</div>
 	            </div>
             </div>
+
             <ul class="snippet-list" data-sortable="dragControlListeners" data-ng-model="snippets">
               <li ng-repeat="snippet in snippets" data-sortable-item>
               	<div data-sortable-item-handle>
@@ -35,6 +37,7 @@
                 </div>
               </li>
             </ul>
+
             <div data-sortable="dragControlListeners" data-ng-model="endingSentences">
 	            <div ng-repeat="sentence in endingSentences" data-sortable-item>
 	            	<div data-sortable-item-handle>{{sentence.text}}</div>
@@ -43,7 +46,7 @@
 
           </div>
         </div>
-
+<!-- 
         <div id="snippet-controls" class="col-md-2">
           <ul id="snippet-controls-list">
             <li>
@@ -53,47 +56,62 @@
               {{snippet.name}}
             </li>
           </ul>
-        </div>
+        </div> -->
 
-        <div class="col-md-5" ng-switch on="prettyView" ng-init="prettyView = false">
-          <div id="cover-final">
+        <div class="col-md-6">
+          <div id="cover-final" ng-switch on="prettyView" ng-init="prettyView = false">
             <h2>Final </h2> 
-            <button ng-click="prettyView = !prettyView">{{prettyView ? "Edit View" : "Pretty View"}}</button>
 
-            <div id="dropView" ng-switch-when=false>
+            <div id="drop-view" ng-switch-when=false>
 
-            	<div id="endVersion-beginning-sentences" class="drop-section" data-sortable="dragControlListeners" data-ng-model="endVersion.beginningSentences">
+            	<div id="end-version-beginning-sentences" class="drop-section" data-sortable="dragControlListeners" data-ng-model="endVersion.beginningSentences">
+            		<p ng-hide="endVersion.beginningSentences.length" class="placeholder-text">First Paragraph</p>
 	            	<span ng-repeat="sentence in endVersion.beginningSentences" data-sortable-item>
 		            	<span data-sortable-item-handle>{{sentence.text}}</span>
 		            </span>
             	</div>
+
 	            <ul class="snippet-list drop-section" data-sortable="dragControlListeners" data-ng-model="endVersion.snippets">
+	              <p ng-hide="endVersion.snippets.length" class="placeholder-text">Bullet Points</p>
 	              <li class="endVersion" ng-repeat="snippet in endVersion.snippets" data-sortable-item>
 	              	<div data-sortable-item-handle>
 	                 {{snippet.text}}
 	                </div>
 	              </li>
 	            </ul>
-            	<div id="endVersion-ending-sentences" class="drop-section" data-sortable="dragControlListeners" data-ng-model="endVersion.endingSentences">
+
+            	<div id="end-version-ending-sentences" class="drop-section" data-sortable="dragControlListeners" data-ng-model="endVersion.endingSentences">
+	            	<p ng-hide="endVersion.endingSentences.length" class="placeholder-text">Second Paragraph</p>
 	            	<span ng-repeat="sentence in endVersion.endingSentences" data-sortable-item>
 		            	<span data-sortable-item-handle>{{sentence.text}}</span>
 		            </span>
             	</div>
+
             </div>
 
-            <div id="prettyView" ng-switch-when=true>
-	            <span ng-repeat="sentence in endVersion.beginningSentences" ng-hide="sentence.hide">{{sentence.text}}</span>
+            <div id="pretty-view" ng-switch-when=true>
+
+	            <p>
+	            	<span ng-repeat="sentence in endVersion.beginningSentences">
+	            		{{sentence.text}}
+	            	</span>
+	            </p>
 
 	            <ul class="snippet-list">
-	              <li ng-repeat="snippet in endVersion.snippets" ng-hide="snippet.hide">
+	              <li ng-repeat="snippet in endVersion.snippets">
 	                {{snippet.text}}
 	              </li>
 	            </ul>
-	            <div ng-repeat="sentence in endVersion.endingSentences" ng-hide="sentence.hide">
-	              <p>{{sentence.text}}</p>
-	            </div>
+
+	            <p >
+	              <span ng-repeat="sentence in endVersion.endingSentences">
+	              	{{sentence.text}}
+	              </span>
+	            </p>
+
             </div>
 
+            <button ng-click="prettyView = !prettyView">{{prettyView ? "Edit View" : "Pretty View"}}</button>
           </div>
         </div>
       </div>

@@ -14,7 +14,6 @@ coverLetterApp.controller("CoverBuilderController", ["$scope", "$http",
     $scope.bodySentences = sentences;
     $scope.endingSentences = textData.endingSentences;
 		$scope.snippets = textData.snippets;
-		$scope.companyName = "XXXX";
 
 		$scope.dragControlListeners = {
 	    accept: function (sourceItemHandleScope, destSortableScope) {return true},//override to determine drag is allowed or not. default is true.
